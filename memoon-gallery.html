@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MEMOON — Design Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #F5F0E8;
+      font-family: Georgia, 'Times New Roman', serif;
+      padding: 48px 24px 80px;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      text-align: center;
+      margin-bottom: 56px;
+      border-bottom: 2.5px solid #2C1810;
+      padding-bottom: 24px;
+    }
+
+    .page-logo {
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: 10px;
+      line-height: 1;
+      display: flex;
+      justify-content: center;
+      gap: 1px;
+      margin-bottom: 8px;
+    }
+
+    .page-logo .cw { color: #F5F0E8; -webkit-text-stroke: 1px #2C1810; }
+    .page-logo .cr { color: #C4381A; }
+    .page-logo .cb { color: #2C1810; }
+
+    .page-subtitle {
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #2C1810;
+      opacity: 0.5;
+      margin-top: 6px;
+    }
+
+    .page-date {
+      font-size: 8px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #C4381A;
+      margin-top: 4px;
+    }
+
+    /* CHAPTER HEADERS */
+    .chapter {
+      margin: 56px 0 24px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px solid #2C1810;
+    }
+
+    .chapter-num {
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #C4381A;
+      margin-bottom: 4px;
+    }
+
+    .chapter-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #2C1810;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* GALLERY GRID */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 32px;
+      margin-top: 24px;
+    }
+
+    .gallery-grid.wide {
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+
+    /* MOCKUP CARD */
+    .mockup-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mockup-label {
+      font-size: 7px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #2C1810;
+      opacity: 0.45;
+    }
+
+    .mockup-title {
+      font-size: 13px;
+      color: #2C1810;
+      font-style: italic;
+      line-height: 1.3;
+    }
+
+    .mockup-note {
+      font-size: 8px;
+      letter-spacing: 1px;
+      color: #2C1810;
+      opacity: 0.4;
+      line-height: 1.5;
+    }
+
+    .status-pill {
+      display: inline-block;
+      font-size: 7px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-top: 4px;
+    }
+
+    .pill-final { background: #C4381A; color: #F5F0E8; }
+    .pill-explored { background: rgba(44,24,16,0.08); color: #2C1810; }
+    .pill-considered { background: #3AAFAF; color: #F5F0E8; }
+
+    /* ══ PHONE FRAMES ══ */
+    .phone {
+      border-radius: 28px;
+      overflow: hidden;
+      border: 4px solid #2C1810;
+      background: #F5F0E8;
+      width: 100%;
+    }
+
+    /* ══ VERSION STYLES ══ */
+
+    /* V1 — Dark chocolate */
+    .v1-phone { background: #2C1810; }
+
+    .v1-header {
+      background: #C4381A;
+      padding: 16px 14px 10px;
+      text-align: center;
+    }
+
+    .v1-logo {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      color: #F5D76E;
+    }
+
+    .v1-tagline {
+      font-size: 7px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #F5D76E;
+      opacity: 0.8;
+      margin-top: 3px;
+    }
+
+    .v1-where-card {
+      margin: 14px 12px 0;
+      background: #F5D76E;
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    .v1-where-title {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2C1810;
+      margin-bottom: 8px;
+    }
+
+    .v1-btn {
+      display: block;
+      width: 100%;
+      background: #2C1810;
+      color: #F5D76E;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 10px;
+      font-family: Georgia, serif;
+      text-align: left;
+      margin-bottom: 5px;
+    }
+
+    .v1-sections { padding: 10px 12px 12px; }
+
+    .v1-sect-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 0.5px solid rgba(245,215,110,0.15);
+    }
+
+    .v1-sect-name { font-size: 13px; color: #F5D76E; font-style: italic; }
+    .v1-sect-count { font-size: 9px; color: #7EC8C8; }
+
+    /* V2 — Magazine cream */
+    .v2-header {
+      background: #F5F0E8;
+      padding: 16px 14px 8px;
+      border-bottom: 2px solid #2C1810;
+      text-align: center;
+    }
+
+    .v2-logo {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 8px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .v2-logo .r { color: #C4381A; }
+    .v2-logo .b { color: #5DC8C8; }
+    .v2-logo .y { color: #D4A017; }
+    .v2-logo .dk { color: #2C1810; }
+
+    .v2-tagline {
+      font-size: 7px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #2C1810;
+      opacity: 0.5;
+      margin-top: 4px;
+    }
+
+    .v2-issue {
+      font-size: 7px;
+      color: #C4381A;
+      letter-spacing: 2px;
+      font-style: italic;
+    }
+
+    .v2-body { background: #F5F0E8; padding: 10px 12px; }
+
+    .v2-quote {
+      font-size: 13px;
+      font-style: italic;
+      color: #2C1810;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .v2-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .v2-mb {
+      border-radius: 8px;
+      padding: 8px;
+      font-size: 9px;
+      font-family: Georgia, serif;
+      color: #F5F0E8;
+      line-height: 1.4;
+      border: none;
+    }
+
+    .v2-mb-red { background: #C4381A; }
+    .v2-mb-dk { background: #2C1810; }
+    .v2-mb-teal { background: #5DC8C8; color: #2C1810; }
+    .v2-mb-gold { background: #D4A017; color: #2C1810; }
+
+    /* COVER LETTER VERSIONS */
+    .cover-shell {
+      width: 100%;
+      height: 240px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blue-water { background: linear-gradient(160deg, #4DD9D9 0%, #5DC8C8 40%, #2AA8A8 70%, #1A8888 100%); }
+    .yellow-water { background: linear-gradient(160deg, #E8C84A 0%, #D4A017 40%, #C49010 70%, #A87800 100%); }
+
+    .ripple {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(180deg, transparent 0px, rgba(255,255,255,0.06) 3px, transparent 6px);
+      pointer-events: none;
+    }
+
+    /* Side spine letters */
+    .spine-col {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 56px;
+      display: flex; flex-direction: column;
+      border-right: 1.5px solid rgba(255,255,255,0.2);
+    }
+
+    .sp-letter {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px; font-weight: 700; line-height: 1;
+    }
+
+    /* Top ticker letters */
+    .top-ticker-demo {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      background: rgba(44,24,16,0.35);
+      padding: 6px 0;
+      overflow: hidden;
+    }
+
+    .ticker-demo-track {
+      display: inline-flex;
+      animation: demoTicker 8s linear infinite;
+    }
+
+    @keyframes demoTicker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .ticker-demo-word {
+      display: inline-flex;
+      padding: 0 12px;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    .right-content {
+      position: absolute;
+      top: 0; left: 56px; right: 0; bottom: 0;
+      display: flex; flex-direction: column;
+      padding: 10px;
+    }
+
+    .rc-vol {
+      font-size: 7px; letter-spacing: 2px; text-transform: uppercase;
+      color: #F5F0E8; opacity: 0.7;
+    }
+
+    .rc-companion {
+      font-size: 13px; font-style: italic; color: #F5F0E8;
+      line-height: 1.2; text-align: right; margin-top: 2px;
+    }
+
+    .rc-photo-placeholder {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); text-align: center;
+    }
+
+    .cover-bottom-strip {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 20px 12px 10px;
+    }
+
+    .blue-bottom { background: linear-gradient(to top, rgba(20,75,75,0.95) 0%, transparent 100%); }
+    .yellow-bottom { background: linear-gradient(to top, rgba(60,38,0,0.9) 0%, transparent 100%); }
+
+    .cover-quote-mini {
+      font-size: 10px; font-style: italic; color: #F5F0E8;
+      line-height: 1.4; margin-bottom: 8px;
+    }
+
+    /* FINAL VERSION */
+    .final-cover {
+      background: #D4A017;
+      overflow: hidden;
+    }
+
+    .final-top-bar {
+      display: flex; justify-content: space-between;
+      padding: 8px 12px 4px;
+      border-bottom: 0.5px solid rgba(44,24,16,0.15);
+    }
+
+    .final-top-t {
+      font-size: 7px; letter-spacing: 3px; text-transform: uppercase;
+      color: #2C1810; opacity: 0.55;
+    }
+
+    .final-ticker {
+      overflow: hidden; padding: 1px 0 2px;
+      border-bottom: 2px solid #2C1810;
+    }
+
+    .final-ticker-track {
+      display: inline-flex; align-items: baseline;
+      animation: finalTicker 10s linear infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes finalTicker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .fhw { display: inline-flex; padding: 0 12px; gap: 0px; }
+    .fhl { font-size: 48px; font-weight: 700; line-height: 1; }
+    .fhl.cw { color: #F5F0E8; }
+    .fhl.cr { color: #C4381A; }
+    .fhl.cb { color: #2C1810; }
+    .f-sep { font-size: 22px; color: rgba(44,24,16,0.25); padding: 0 6px; }
+
+    .final-companion {
+      padding: 5px 12px 6px;
+      border-bottom: 0.5px solid rgba(44,24,16,0.12);
+      font-family: 'Reenie Beanie', cursive;
+      font-size: 18px; color: #2C1810; opacity: 0.8;
+    }
+
+    .final-photo {
+      height: 140px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .final-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 15%;
+    }
+
+    .final-photo-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 20px 12px 8px;
+      background: linear-gradient(to top, rgba(44,24,16,0.88) 0%, transparent 100%);
+    }
+
+    .final-quote {
+      font-size: 9px; font-style: italic; color: #F5F0E8; line-height: 1.4;
+    }
+
+    .final-arrow {
+      background: rgba(44,24,16,0.88);
+      padding: 1px 12px 5px;
+      display: flex; justify-content: center;
+    }
+
+    .final-cards {
+      display: flex; gap: 6px; padding: 4px 10px 4px;
+      overflow: hidden;
+    }
+
+    .fcard {
+      border-radius: 12px; padding: 8px 8px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 5px; min-height: 60px; width: 72px; flex-shrink: 0;
+      text-align: center;
+    }
+
+    .fcard .fi { font-size: 18px; }
+    .fcard .ft {
+      font-size: 7px; color: #F5F0E8; line-height: 1.2;
+      font-family: Georgia, serif; letter-spacing: 1px; text-transform: uppercase;
+    }
+
+    .fc1 { background: #C4381A; }
+    .fc2 { background: #3AAFAF; }
+    .fc3 { background: #A32020; }
+
+    .final-mods { padding: 5px 12px 10px; border-top: 1px solid rgba(44,24,16,0.1); }
+    .fmod-label { font-size: 6px; letter-spacing: 3px; text-transform: uppercase; color: #2C1810; opacity: 0.4; margin-bottom: 4px; font-family: Georgia, serif; }
+    .fmod-row { display: flex; align-items: center; gap: 5px; padding: 3px 0; border-bottom: 0.5px solid rgba(44,24,16,0.07); }
+    .fmod-row:last-child { border-bottom: none; }
+    .fmod-num { font-size: 7px; color: #C4381A; min-width: 14px; font-family: Georgia, serif; text-transform: uppercase; }
+    .fmod-name { font-size: 8px; color: #2C1810; flex: 1; font-family: Georgia, serif; letter-spacing: 1.5px; text-transform: uppercase; }
+    .fmod-count { font-size: 7px; color: #2C1810; opacity: 0.28; font-family: Georgia, serif; }
+
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 0.5px solid rgba(44,24,16,0.15);
+      margin: 48px 0 0;
+    }
+
+    /* DECISIONS LOG */
+    .decisions-section {
+      margin-top: 56px;
+    }
+
+    .decision-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 0.5px solid rgba(44,24,16,0.1);
+    }
+
+    .decision-label {
+      font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+      color: #2C1810; opacity: 0.4; margin-bottom: 4px; font-family: Georgia, serif;
+    }
+
+    .decision-value {
+      font-size: 12px; color: #2C1810; font-style: italic; line-height: 1.4;
+    }
+
+    .color-swatches {
+      display: flex; gap: 8px; margin-top: 6px;
+    }
+
+    .swatch {
+      width: 28px; height: 28px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 7px; letter-spacing: 1px; color: rgba(255,255,255,0.8);
+      font-family: Georgia, serif;
+    }
+
+    .footer-note {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 2px solid #2C1810;
+      text-align: center;
+    }
+
+    .footer-note p {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: #2C1810; opacity: 0.4; line-height: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-logo">
+      <span class="cw">M</span><span class="cr">E</span><span class="cb">M</span>
+      <span class="cw">O</span><span class="cr">O</span><span class="cb">N</span>
+    </div>
+    <div class="page-subtitle">Design Gallery — All Versions</div>
+    <div class="page-date">June 2026 · Built with Claude</div>
+  </div>
+
+
+  <!-- ══ CHAPTER 1 — EARLY CONCEPTS ══ -->
+  <div class="chapter">
+    <div class="chapter-num">Chapter 01</div>
+    <div class="chapter-title">Early Concepts</div>
+  </div>
+
+  <div class="gallery-grid">
+
+    <!-- V1 Dark Chocolate -->
+    <div class="mockup-card">
+      <div class="mockup-label">Version 01</div>
+      <div class="mockup-title">Dark Chocolate + Gold</div>
+      <div class="mockup-note">First dark iteration. Deep brown base, gold accents, terracotta red. Italian Riviera, Dolce Vita palette. Letter blocks in color squares.</div>
+      <span class="status-pill pill-explored">Explored</span>
+      <div class="phone v1-phone">
+        <div class="v1-header">
+          <div class="v1-logo">memoon</div>
+          <div class="v1-tagline">your solo travel companion</div>
+        </div>
+        <div class="v1-where-card">
+          <div class="v1-where-title">where are you right now?</div>
+          <button class="v1-btn">✈ i just landed</button>
+          <button class="v1-btn">🌙 hard moment right now</button>
+          <button class="v1-btn">🗺 still planning my trip</button>
+        </div>
+        <div class="v1-sections">
+          <div class="v1-sect-row"><span class="v1-sect-name">Start Here</span><span class="v1-sect-count">7 videos</span></div>
+          <div class="v1-sect-row"><span class="v1-sect-name">Confidence</span><span class="v1-sect-count">6 videos</span></div>
+          <div class="v1-sect-row"><span class="v1-sect-name">Emotional Support</span><span class="v1-sect-count">8 videos</span></div>
+          <div class="v1-sect-row"><span class="v1-sect-name">Transformation</span><span class="v1-sect-count">2 videos</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V2 Magazine Cream -->
+    <div class="mockup-card">
+      <div class="mockup-label">Version 02</div>
+      <div class="mockup-title">Magazine Cream — ELLE Cover Energy</div>
+      <div class="mockup-note">Cream base, big serif masthead, ELLE cover reference. Italic serif throughout. Numbered modules like editorial TOC.</div>
+      <span class="status-pill pill-explored">Explored</span>
+      <div class="phone">
+        <div class="v2-header">
+          <div class="v2-logo">
+            <span class="r">M</span><span class="dk">E</span><span class="b">M</span><span class="y">O</span><span class="r">O</span><span class="b">N</span>
+          </div>
+          <div class="v2-tagline">your solo travel companion</div>
+          <div class="v2-issue">Summer 2026</div>
+        </div>
+        <div class="v2-body">
+          <div class="v2-quote">"Tell me where you are and I'll meet you there."</div>
+          <div class="v2-grid">
+            <button class="v2-mb v2-mb-red">🗺 Still planning</button>
+            <button class="v2-mb v2-mb-dk">✈️ Just landed</button>
+            <button class="v2-mb v2-mb-teal">🌙 Hard moment</button>
+            <button class="v2-mb v2-mb-gold">✨ I'm glowing</button>
+          </div>
+          <div style="border-top: 0.5px solid rgba(44,24,16,0.2); padding-top: 8px;">
+            <div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:0.5px solid rgba(44,24,16,0.1);">
+              <span style="font-size:9px;color:#C4381A;min-width:20px;">01</span>
+              <span style="font-size:11px;font-style:italic;color:#2C1810;">Start Here</span>
+              <span style="font-size:9px;color:#2C1810;opacity:0.3;margin-left:auto;">7 videos</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;padding:5px 0;">
+              <span style="font-size:9px;color:#C4381A;min-width:20px;">02</span>
+              <span style="font-size:11px;font-style:italic;color:#2C1810;">Confidence</span>
+              <span style="font-size:9px;color:#2C1810;opacity:0.3;margin-left:auto;">6 videos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ══ CHAPTER 2 — COVER EXPLORATIONS ══ -->
+  <div class="chapter">
+    <div class="chapter-num">Chapter 02</div>
+    <div class="chapter-title">Cover Letter Explorations</div>
+  </div>
+
+  <div class="gallery-grid">
+
+    <!-- Letters Left Side on Blue -->
+    <div class="mockup-card">
+      <div class="mockup-label">Version 03</div>
+      <div class="mockup-title">Blue Water — Letters Stacked Left</div>
+      <div class="mockup-note">Aquamarine background. MEMOON letters stacked vertically down left spine. Dark background removed — letters directly on water.</div>
+      <span class="status-pill pill-explored">Explored</span>
+      <div class="phone">
+        <div class="cover-shell blue-water" style="height:200px;">
+          <div class="ripple"></div>
+          <div class="spine-col">
+            <div class="sp-letter" style="color:#F5F0E8;">M</div>
+            <div class="sp-letter" style="color:#C4381A;">E</div>
+            <div class="sp-letter" style="color:#D4A017;">M</div>
+            <div class="sp-letter" style="color:#F5F0E8;">O</div>
+            <div class="sp-letter" style="color:#C4381A;">O</div>
+          </div>
+          <div class="right-content">
+            <div class="rc-vol">Vol. 1 · 2026</div>
+            <div class="rc-companion">your<br>solo travel<br>companion</div>
+            <div class="rc-photo-placeholder">your photo here</div>
+          </div>
+          <div class="cover-bottom-strip blue-bottom">
+            <div class="cover-quote-mini">"Tell me where you are and I'll meet you there."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Letters Left Side on Yellow -->
+    <div class="mockup-card">
+      <div class="mockup-label">Version 04</div>
+      <div class="mockup-title">Yellow Water — Letters Stacked Left</div>
+      <div class="mockup-note">Golden water background. Same spine treatment. Red M, white E, black M, red O, white O, black N — the locked color combo.</div>
+      <span class="status-pill pill-explored">Explored</span>
+      <div class="phone">
+        <div class="cover-shell yellow-water" style="height:200px;">
+          <div class="ripple"></div>
+          <div class="spine-col" style="border-right-color:rgba(44,24,16,0.2);">
+            <div class="sp-letter" style="color:#C4381A;">M</div>
+            <div class="sp-letter" style="color:#F5F0E8;">E</div>
+            <div class="sp-letter" style="color:#2C1810;">M</div>
+            <div class="sp-letter" style="color:#C4381A;">O</div>
+            <div class="sp-letter" style="color:#F5F0E8;">O</div>
+          </div>
+          <div class="right-content">
+            <div class="rc-vol" style="color:#2C1810;">Vol. 1 · 2026</div>
+            <div class="rc-companion" style="color:#2C1810;">your<br>solo travel<br>companion</div>
+            <div class="rc-photo-placeholder" style="color:rgba(44,24,16,0.3);">your photo here</div>
+          </div>
+          <div class="cover-bottom-strip yellow-bottom">
+            <div class="cover-quote-mini">"Tell me where you are and I'll meet you there."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blue Horizontal Ticker -->
+    <div class="mockup-card">
+      <div class="mockup-label">Version 05</div>
+      <div class="mockup-title">Blue — Horizontal Ticker Across Top</div>
+      <div class="mockup-note">MEMOON scrolls continuously left to right across the top bar. Aquamarine full-bleed background. Letters in white, red, gold.</div>
+      <span class="status-pill pill-explored">Explored</span>
+      <div class="phone">
+        <div class="cover-shell blue-water" style="height:200px;">
+          <div class="ripple"></div>
+          <div class="top-ticker-demo">
+            <div class="ticker-demo-track">
+              <div class="ticker-demo-word">
+                <span style="color:#F5F0E8;">M</span><span style="color:#C4381A;">E</span><span style="color:#D4A017;">M</span><span style="color:#F5F0E8;">O</span><span style="color:#C4381A;">O</span><span style="color:#D4A017;">N</span>
+              </div>
+              <span style="font-size:14px;color:rgba(245,240,232,0.3);padding:0 10px;">·</span>
+              <div class="ticker-demo-word">
+                <span style="color:#F5F0E8;">M</span><span style="color:#C4381A;">E</span><span style="color:#D4A017;">M</span><span style="color:#F5F0E8;">O</span><span style="color:#C4381A;">O</span><span style="color:#D4A017;">N</span>
+              </div>
+              <span style="font-size:14px;color:rgba(245,240,232,0.3);padding:0 10px;">·</span>
+              <div class="ticker-demo-word">
+                <span style="color:#F5F0E8;">M</span><span style="color:#C4381A;">E</span><span style="color:#D4A017;">M</span><span style="color:#F5F0E8;">O</span><span style="color:#C4381A;">O</span><span style="color:#D4A017;">N</span>
+              </div>
+              <span style="font-size:14px;color:rgba(245,240,232,0.3);padding:0 10px;">·</span>
+              <div class="ticker-demo-word">
+                <span style="color:#F5F0E8;">M</span><span style="color:#C4381A;">E</span><span style="color:#D4A017;">M</span><span style="color:#F5F0E8;">O</span><span style="color:#C4381A;">O</span><span style="color:#D4A017;">N</span>
+              </div>
+              <span style="font-size:14px;color:rgba(245,240,232,0.3);padding:0 10px;">·</span>
+            </div>
+          </div>
+          <div style="position:absolute;top:46px;left:12px;right:12px;display:flex;justify-content:space-between;">
+            <span style="font-size:7px;letter-spacing:2px;text-transform:uppercase;color:#F5F0E8;opacity:0.7;">Vol. 1 · 2026</span>
+            <span style="font-size:7px;letter-spacing:2px;text-transform:uppercase;color:#F5F0E8;opacity:0.7;">by Brittany Allyn</span>
+          </div>
+          <div style="position:absolute;top:68px;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;">
+            <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);text-align:center;">your photo here</div>
+          </div>
+          <div class="cover-bottom-strip blue-bottom">
+            <div class="cover-quote-mini">"Tell me where you are and I'll meet you there."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Magazine Cover with Photo -->
+    <div class="mockup-card">
+      <div class="mockup-label">Version 06</div>
+      <div class="mockup-title">Magazine Masthead — Full Photo Cover</div>
+      <div class="mockup-note">MEMOON as big masthead at top. Photo fills the cover. Letters in color directly on water background. Vol + by Brittany at very top.</div>
+      <span class="status-pill pill-explored">Explored</span>
+      <div class="phone">
+        <div class="cover-shell yellow-water" style="height:200px;display:flex;flex-direction:column;">
+          <div class="ripple"></div>
+          <div style="background:rgba(44,24,16,0.3);padding:5px 10px;display:flex;justify-content:space-between;z-index:2;position:relative;">
+            <span style="font-size:6px;letter-spacing:2px;text-transform:uppercase;color:#F5F0E8;opacity:0.8;">Vol. 1 · 2026</span>
+            <span style="font-size:6px;letter-spacing:2px;text-transform:uppercase;color:#F5F0E8;opacity:0.8;">by Brittany Allyn</span>
+          </div>
+          <div style="padding:2px 8px 4px;border-bottom:2px solid #2C1810;z-index:2;position:relative;overflow:hidden;">
+            <div style="display:inline-flex;animation:finalTicker 10s linear infinite;white-space:nowrap;">
+              <div style="display:inline-flex;padding:0 10px;gap:0;">
+                <span style="font-size:38px;font-weight:700;color:#F5F0E8;">M</span><span style="font-size:38px;font-weight:700;color:#C4381A;">E</span><span style="font-size:38px;font-weight:700;color:#2C1810;">M</span><span style="font-size:38px;font-weight:700;color:#F5F0E8;">O</span><span style="font-size:38px;font-weight:700;color:#C4381A;">O</span><span style="font-size:38px;font-weight:700;color:#2C1810;">N</span>
+              </div>
+              <span style="font-size:18px;color:rgba(44,24,16,0.25);padding:0 6px;">·</span>
+              <div style="display:inline-flex;padding:0 10px;gap:0;">
+                <span style="font-size:38px;font-weight:700;color:#F5F0E8;">M</span><span style="font-size:38px;font-weight:700;color:#C4381A;">E</span><span style="font-size:38px;font-weight:700;color:#2C1810;">M</span><span style="font-size:38px;font-weight:700;color:#F5F0E8;">O</span><span style="font-size:38px;font-weight:700;color:#C4381A;">O</span><span style="font-size:38px;font-weight:700;color:#2C1810;">N</span>
+              </div>
+              <span style="font-size:18px;color:rgba(44,24,16,0.25);padding:0 6px;">·</span>
+            </div>
+          </div>
+          <div style="flex:1;display:flex;align-items:center;justify-content:center;position:relative;">
+            <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(44,24,16,0.3);">your photo fills here</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ══ CHAPTER 3 — USER JOURNEY SCREENS ══ -->
+  <div class="chapter">
+    <div class="chapter-num">Chapter 03</div>
+    <div class="chapter-title">User Journey — Home Screen</div>
+  </div>
+
+  <div class="gallery-grid">
+
+    <!-- Journey with 4 mood buttons -->
+    <div class="mockup-card">
+      <div class="mockup-label">Version 07</div>
+      <div class="mockup-title">4 Mood Buttons + Modules List</div>
+      <div class="mockup-note">The core home screen. Quote at top, 4 color-blocked mood buttons, numbered module list with greyed video counts.</div>
+      <span class="status-pill pill-considered">Considered</span>
+      <div class="phone">
+        <div style="background:#2C1810;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-size:18px;font-weight:700;letter-spacing:4px;display:flex;">
+            <span style="color:#F5F0E8;">M</span><span style="color:#C4381A;">E</span><span style="color:#F5F0E8;">M</span><span style="color:#D4A017;">O</span><span style="color:#C4381A;">O</span><span style="color:#D4A017;">N</span>
+          </div>
+          <span style="font-size:7px;letter-spacing:2px;text-transform:uppercase;color:#F5F0E8;opacity:0.4;">Vol. 1</span>
+        </div>
+        <div style="background:#F5F0E8;padding:14px;">
+          <div style="font-size:13px;font-style:italic;color:#2C1810;margin-bottom:12px;line-height:1.4;">"Tell me where you are<br>and I'll meet you there."</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px;">
+            <div style="background:#C4381A;border-radius:10px;padding:10px 8px;font-size:9px;color:#F5F0E8;font-family:Georgia,serif;">🗺 Still planning</div>
+            <div style="background:#3AAFAF;border-radius:10px;padding:10px 8px;font-size:9px;color:#F5F0E8;font-family:Georgia,serif;">✈️ Just landed</div>
+            <div style="background:#3AAFAF;border-radius:10px;padding:10px 8px;font-size:9px;color:#2C1810;font-family:Georgia,serif;">✨ Let's have fun</div>
+            <div style="background:#A32020;border-radius:10px;padding:10px 8px;font-size:9px;color:#F5F0E8;font-family:Georgia,serif;">🌙 Hard moment</div>
+          </div>
+          <div style="border-top:1.5px solid #2C1810;padding-top:8px;">
+            <div style="font-size:7px;letter-spacing:3px;text-transform:uppercase;color:#2C1810;opacity:0.4;margin-bottom:6px;">all modules</div>
+            <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:0.5px solid rgba(44,24,16,0.1);">
+              <span style="font-size:8px;color:#C4381A;min-width:16px;">01</span>
+              <span style="font-size:11px;font-style:italic;color:#2C1810;flex:1;">Start Here</span>
+              <span style="font-size:8px;color:#2C1810;opacity:0.28;">7 videos</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;padding:4px 0;">
+              <span style="font-size:8px;color:#C4381A;min-width:16px;">02</span>
+              <span style="font-size:11px;font-style:italic;color:#2C1810;flex:1;">Confidence</span>
+              <span style="font-size:8px;color:#2C1810;opacity:0.28;">6 videos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Swipe carousel cards -->
+    <div class="mockup-card">
+      <div class="mockup-label">Version 08</div>
+      <div class="mockup-title">Swipeable Mood Cards Carousel</div>
+      <div class="mockup-note">Replaced 2x2 grid with horizontal swipe carousel. Rounded cards with gaps between. Dot tracker. Saves vertical space.</div>
+      <span class="status-pill pill-considered">Considered</span>
+      <div class="phone">
+        <div style="background:#D4A017;">
+          <div style="display:flex;justify-content:space-between;padding:8px 12px 4px;border-bottom:0.5px solid rgba(44,24,16,0.15);">
+            <span style="font-size:7px;letter-spacing:3px;text-transform:uppercase;color:#2C1810;opacity:0.55;">Vol. 1 · 2026</span>
+            <span style="font-size:7px;letter-spacing:3px;text-transform:uppercase;color:#2C1810;opacity:0.55;">by Brittany Allyn</span>
+          </div>
+          <div style="padding:6px 12px 7px;border-bottom:0.5px solid rgba(44,24,16,0.12);">
+            <span style="font-family:'Reenie Beanie',cursive;font-size:18px;color:#2C1810;opacity:0.8;">your solo travel companion</span>
+          </div>
+          <div style="height:80px;background:#C49010;display:flex;align-items:flex-end;padding:0 12px 8px;position:relative;">
+            <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(44,24,16,0.3);">your photo here</span>
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 12px 8px;background:linear-gradient(to top, rgba(44,24,16,0.85) 0%, transparent 100%);">
+              <div style="font-size:9px;font-style:italic;color:#F5F0E8;line-height:1.4;">"Tell me where you are<br>and I'll meet you there."</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:7px;padding:6px 12px;overflow:hidden;">
+            <div style="background:#C4381A;border-radius:14px;padding:8px;text-align:center;min-width:72px;display:flex;flex-direction:column;align-items:center;gap:5px;">
+              <span style="font-size:18px;">🗺</span>
+              <span style="font-size:7px;color:#F5F0E8;font-family:Georgia,serif;letter-spacing:1px;text-transform:uppercase;">Still planning</span>
+            </div>
+            <div style="background:#3AAFAF;border-radius:14px;padding:8px;text-align:center;min-width:72px;display:flex;flex-direction:column;align-items:center;gap:5px;">
+              <span style="font-size:18px;">✈️</span>
+              <span style="font-size:7px;color:#F5F0E8;font-family:Georgia,serif;letter-spacing:1px;text-transform:uppercase;">Just landed</span>
+            </div>
+            <div style="background:#A32020;border-radius:14px;padding:8px;text-align:center;min-width:72px;display:flex;flex-direction:column;align-items:center;gap:5px;">
+              <span style="font-size:18px;">✨</span>
+              <span style="font-size:7px;color:#F5F0E8;font-family:Georgia,serif;letter-spacing:1px;text-transform:uppercase;">Let's have fun</span>
+            </div>
+          </div>
+          <div style="display:flex;gap:5px;padding:0 12px 6px;">
+            <div style="width:14px;height:5px;border-radius:3px;background:#C4381A;"></div>
+            <div style="width:5px;height:5px;border-radius:50%;background:rgba(44,24,16,0.15);"></div>
+            <div style="width:5px;height:5px;border-radius:50%;background:rgba(44,24,16,0.15);"></div>
+            <div style="width:5px;height:5px;border-radius:50%;background:rgba(44,24,16,0.15);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ══ CHAPTER 4 — FINAL DESIGN ══ -->
+  <div class="chapter">
+    <div class="chapter-num">Chapter 04</div>
+    <div class="chapter-title">Final Design — Built & Deployed</div>
+  </div>
+
+  <div class="gallery-grid wide">
+
+    <div class="mockup-card">
+      <div class="mockup-label">Version Final — Cover Screen</div>
+      <div class="mockup-title">The One — Yellow Water, Horizontal Ticker, Swipe Cards</div>
+      <div class="mockup-note">Vol. 1 · 2026 · by Brittany Allyn top bar. MEMOON tickers horizontally. Reenie Beanie "your solo travel companion." Photo with quote overlay + handwritten arrow. Alternating red/aqua swipe cards centered with big emoji. All-caps Georgia modules with greyed video counts.</div>
+      <span class="status-pill pill-final">✦ Final Build</span>
+      <div class="phone">
+        <div class="final-cover">
+          <div class="final-top-bar">
+            <span class="final-top-t">Vol. 1 · 2026</span>
+            <span class="final-top-t">by Brittany Allyn</span>
+          </div>
+          <div class="final-ticker">
+            <div class="final-ticker-track">
+              <div class="fhw"><span class="fhl cw">M</span><span class="fhl cr">E</span><span class="fhl cb">M</span><span class="fhl cw">O</span><span class="fhl cr">O</span><span class="fhl cb">N</span></div>
+              <span class="f-sep">·</span>
+              <div class="fhw"><span class="fhl cw">M</span><span class="fhl cr">E</span><span class="fhl cb">M</span><span class="fhl cw">O</span><span class="fhl cr">O</span><span class="fhl cb">N</span></div>
+              <span class="f-sep">·</span>
+              <div class="fhw"><span class="fhl cw">M</span><span class="fhl cr">E</span><span class="fhl cb">M</span><span class="fhl cw">O</span><span class="fhl cr">O</span><span class="fhl cb">N</span></div>
+              <span class="f-sep">·</span>
+              <div class="fhw"><span class="fhl cw">M</span><span class="fhl cr">E</span><span class="fhl cb">M</span><span class="fhl cw">O</span><span class="fhl cr">O</span><span class="fhl cb">N</span></div>
+              <span class="f-sep">·</span>
+            </div>
+          </div>
+          <div class="final-companion">your solo travel companion</div>
+          <div class="final-photo">
+            <img src="brittany.jpg" alt="Brittany in golden water" onerror="this.parentElement.style.background='#C49010';this.style.display='none';" />
+            <div class="final-photo-overlay">
+              <div class="final-quote">"Tell me where you are and I'll meet you there."</div>
+            </div>
+          </div>
+          <div class="final-arrow">
+            <svg width="24" height="32" viewBox="0 0 40 48" fill="none">
+              <path d="M20 4 C18 10, 16 18, 19 28 C20 32, 21 36, 20 42" stroke="white" stroke-width="2.2" stroke-linecap="round" opacity="0.75"/>
+              <path d="M12 36 C15 40, 18 43, 20 44 C22 43, 26 40, 29 36" stroke="white" stroke-width="2.2" stroke-linecap="round" opacity="0.75"/>
+            </svg>
+          </div>
+          <div class="final-cards">
+            <div class="fcard fc1"><span class="fi">🗺</span><div class="ft">Still planning</div></div>
+            <div class="fcard fc2"><span class="fi">✈️</span><div class="ft">Just landed</div></div>
+            <div class="fcard fc3"><span class="fi">✨</span><div class="ft">Let's have fun</div></div>
+          </div>
+          <div style="display:flex;gap:5px;padding:0 10px 5px;">
+            <div style="width:14px;height:5px;border-radius:3px;background:#C4381A;"></div>
+            <div style="width:5px;height:5px;border-radius:50%;background:rgba(44,24,16,0.15);"></div>
+            <div style="width:5px;height:5px;border-radius:50%;background:rgba(44,24,16,0.15);"></div>
+            <div style="width:5px;height:5px;border-radius:50%;background:rgba(44,24,16,0.15);"></div>
+          </div>
+          <div class="final-mods">
+            <div class="fmod-label">all modules</div>
+            <div class="fmod-row"><span class="fmod-num">01</span><span class="fmod-name">Start Here</span><span class="fmod-count">7 videos</span></div>
+            <div class="fmod-row"><span class="fmod-num">02</span><span class="fmod-name">Confidence</span><span class="fmod-count">6 videos</span></div>
+            <div class="fmod-row"><span class="fmod-num">03</span><span class="fmod-name">Emotional Support</span><span class="fmod-count">8 videos</span></div>
+            <div class="fmod-row"><span class="fmod-num">04</span><span class="fmod-name">Transformation</span><span class="fmod-count">2 videos</span></div>
+            <div class="fmod-row"><span class="fmod-num">05</span><span class="fmod-name">Bonus + Missions</span><span class="fmod-count">2 videos</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final video list screen -->
+    <div class="mockup-card">
+      <div class="mockup-label">Version Final — Video List Screen</div>
+      <div class="mockup-title">Module Video List</div>
+      <div class="mockup-note">After tapping a module or mood card. MEMOON header bar. All-caps Georgia section title. Play button circle + video title + position counter. Tapping enters the video player.</div>
+      <span class="status-pill pill-final">✦ Final Build</span>
+      <div class="phone">
+        <div style="background:#2C1810;padding:32px 16px 12px;display:flex;justify-content:space-between;align-items:flex-end;">
+          <div style="font-size:20px;font-weight:700;letter-spacing:5px;display:flex;">
+            <span style="color:#F5F0E8;">M</span><span style="color:#C4381A;">E</span><span style="color:#2C1810;-webkit-text-stroke:0.5px #888;">M</span><span style="color:#F5F0E8;">O</span><span style="color:#C4381A;">O</span><span style="color:#2C1810;-webkit-text-stroke:0.5px #888;">N</span>
+          </div>
+          <span style="font-size:7px;letter-spacing:2px;text-transform:uppercase;color:#F5F0E8;opacity:0.4;">Vol. 1 · 2026</span>
+        </div>
+        <div style="background:#F5F0E8;padding:12px 16px 16px;">
+          <div style="font-size:7px;letter-spacing:4px;text-transform:uppercase;color:#2C1810;opacity:0.4;margin-bottom:10px;border-bottom:1.5px solid #2C1810;padding-bottom:6px;">Emotional Support</div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:0.5px solid rgba(44,24,16,0.1);">
+            <div style="width:32px;height:32px;border-radius:50%;border:1.5px solid #C4381A;display:flex;align-items:center;justify-content:center;font-size:10px;color:#C4381A;flex-shrink:0;">▶</div>
+            <div>
+              <div style="font-size:10px;color:#2C1810;font-family:Georgia,serif;letter-spacing:1px;text-transform:uppercase;">Feeling Lonely or Bored</div>
+              <div style="font-size:8px;color:#2C1810;opacity:0.3;margin-top:2px;">Emotional Support · 1 of 8</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:0.5px solid rgba(44,24,16,0.1);">
+            <div style="width:32px;height:32px;border-radius:50%;border:1.5px solid #C4381A;display:flex;align-items:center;justify-content:center;font-size:10px;color:#C4381A;flex-shrink:0;">▶</div>
+            <div>
+              <div style="font-size:10px;color:#2C1810;font-family:Georgia,serif;letter-spacing:1px;text-transform:uppercase;">Nobody Is Looking at You</div>
+              <div style="font-size:8px;color:#2C1810;opacity:0.3;margin-top:2px;">Emotional Support · 2 of 8</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;">
+            <div style="width:32px;height:32px;border-radius:50%;border:1.5px solid #C4381A;display:flex;align-items:center;justify-content:center;font-size:10px;color:#C4381A;flex-shrink:0;">▶</div>
+            <div>
+              <div style="font-size:10px;color:#2C1810;font-family:Georgia,serif;letter-spacing:1px;text-transform:uppercase;">I Want to Go Home</div>
+              <div style="font-size:8px;color:#2C1810;opacity:0.3;margin-top:2px;">Emotional Support · 6 of 8</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final player screen -->
+    <div class="mockup-card">
+      <div class="mockup-label">Version Final — Video Player</div>
+      <div class="mockup-title">Video Player Screen</div>
+      <div class="mockup-note">Dark header with "Now Playing" label and video title in all-caps. Vimeo embed fills vertically (9:16 ratio). Up Next row below with red play circle and next video title.</div>
+      <span class="status-pill pill-final">✦ Final Build</span>
+      <div class="phone">
+        <div style="background:#2C1810;padding:32px 16px 12px;">
+          <div style="font-size:7px;letter-spacing:4px;text-transform:uppercase;color:#C4381A;margin-bottom:5px;">Now Playing</div>
+          <div style="font-size:13px;color:#F5F0E8;font-family:Georgia,serif;letter-spacing:1.5px;text-transform:uppercase;line-height:1.3;">Goodnight From<br>Brittany</div>
+        </div>
+        <div style="background:#1A0D08;height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+          <div style="width:52px;height:52px;border-radius:50%;border:2px solid #F5F0E8;display:flex;align-items:center;justify-content:center;font-size:18px;color:#F5F0E8;">▶</div>
+          <div style="font-size:7px;letter-spacing:3px;text-transform:uppercase;color:#3AAFAF;">Vimeo video loads here</div>
+        </div>
+        <div style="background:#F5F0E8;padding:14px 16px;">
+          <div style="font-size:7px;letter-spacing:3px;text-transform:uppercase;color:#2C1810;opacity:0.4;margin-bottom:8px;">Up Next</div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:34px;height:34px;border-radius:50%;background:#C4381A;display:flex;align-items:center;justify-content:center;font-size:11px;color:#F5F0E8;flex-shrink:0;">▶</div>
+            <div style="font-size:10px;color:#2C1810;font-family:Georgia,serif;letter-spacing:1px;text-transform:uppercase;line-height:1.4;">Morning Reset</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ══ DESIGN DECISIONS ══ -->
+  <div class="decisions-section">
+    <div class="chapter">
+      <div class="chapter-num">Appendix</div>
+      <div class="chapter-title">Design Decisions Log</div>
+    </div>
+
+    <div class="decision-row">
+      <div>
+        <div class="decision-label">Color Palette</div>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#D4A017;">Gold</div>
+          <div class="swatch" style="background:#C4381A;">Red</div>
+          <div class="swatch" style="background:#3AAFAF;">Aqua</div>
+          <div class="swatch" style="background:#2C1810;">Brown</div>
+          <div class="swatch" style="background:#F5F0E8;border:1px solid #D4C9B8;color:#2C1810;">Cream</div>
+        </div>
+      </div>
+      <div>
+        <div class="decision-label">Inspiration</div>
+        <div class="decision-value">Italian Riviera 1960s. Dolce Vita. ELLE magazine cover. Slim Aarons. The dress in the pool photo.</div>
+      </div>
+    </div>
+
+    <div class="decision-row">
+      <div>
+        <div class="decision-label">Typography</div>
+        <div class="decision-value">Georgia serif — all-caps spaced for modules, meta, UI. Reenie Beanie — handwriting for "your solo travel companion" only.</div>
+      </div>
+      <div>
+        <div class="decision-label">Letter Colors — Final</div>
+        <div class="decision-value">
+          <span style="color:#F5F0E8;-webkit-text-stroke:0.5px #2C1810;font-size:20px;font-weight:700;">M</span>
+          <span style="color:#C4381A;font-size:20px;font-weight:700;">E</span>
+          <span style="color:#2C1810;font-size:20px;font-weight:700;">M</span>
+          <span style="color:#F5F0E8;-webkit-text-stroke:0.5px #2C1810;font-size:20px;font-weight:700;">O</span>
+          <span style="color:#C4381A;font-size:20px;font-weight:700;">O</span>
+          <span style="color:#2C1810;font-size:20px;font-weight:700;">N</span>
+          <div style="font-size:10px;opacity:0.5;margin-top:4px;">white · red · black · white · red · black</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="decision-row">
+      <div>
+        <div class="decision-label">Content — 25 Videos</div>
+        <div class="decision-value">Start Here (7) · Confidence (6) · Emotional Support (8) · Transformation (2) · Bonus + Missions (2)</div>
+      </div>
+      <div>
+        <div class="decision-label">Tech Stack</div>
+        <div class="decision-value">PWA · Single HTML file · Vimeo for video hosting · Stripe for payments · GitHub + Vercel for deploy</div>
+      </div>
+    </div>
+
+    <div class="decision-row">
+      <div>
+        <div class="decision-label">Pricing Strategy</div>
+        <div class="decision-value">$67 founders price → $97 after launch. One-time payment, no subscription for v1.</div>
+      </div>
+      <div>
+        <div class="decision-label">Key UX Decisions</div>
+        <div class="decision-value">No price on app home screen. Quote on photo only, not repeated. White handwritten arrow as pointer. Swipe carousel saves vertical space.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    <p>MEMOON · Design Gallery · June 2026</p>
+    <p>Built with Claude · All versions documented</p>
+    <p>brittanyallyn.com</p>
+  </div>
+
+</body>
+</html>
